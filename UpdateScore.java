@@ -4,20 +4,27 @@ public class UpdateScore {
 	
 	//score format - gameAgameBsetAsetBmatchAmatchB
 	//eg-114531 where 31 indicates 40-15 
-	static int score = 115431;
+	static int score = 0;
 	static boolean cont_game = true;
 	public static void parseScore(String input)
 	{
 	    char[] scorers = input.toCharArray();
 	    for(char scorer : scorers)
 	    {
-	        if(!updateScore(scorer))
+	        if(updateScore(scorer))
 	        {
 	            displayScore(score);
 	        }
+	        else
+	        {
+	        	System.out.println("Final Score");
+	        	displayScore(score);
+	        	break;
+	        	
+	        }
+	        	
+	        
 	    }
-	    System.out.println("Final Score");
-	    displayScore(score);
 	}
 	
 	public static void displayScore(int inputScore)
@@ -121,13 +128,19 @@ public class UpdateScore {
 	
 	
 	public static void main(String[] args) {
-		System.out.println(score);
-		boolean a= updateScore('A');
-		System.out.println(score);
-		a= updateScore('B');
-		System.out.println(score);
-		a= updateScore('A');
-		System.out.println(score);
+		String INPUT= "ABAAABBBABABAABBA";
+		parseScore(INPUT);
+		//System.out.println(score);
+		//displayScore(score);
+		//boolean a= updateScore('A');
+		//System.out.println(score);
+		//displayScore(score);
+		//a= updateScore('B');
+		//displayScore(score);
+		//System.out.println(score);
+		//a= updateScore('A');
+		//displayScore(score);
+		//System.out.println(score);
 	}
 
 }
